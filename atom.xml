@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Eetze</title>
-  <subtitle>Eetze博客</subtitle>
+  <title>Eetze的博客</title>
+  <subtitle>自知者不怨人 知命者不怨天</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://eetze.github.io/"/>
