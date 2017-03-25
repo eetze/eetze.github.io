@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://eetze.github.io/"/>
-  <updated>2017-03-25T11:09:33.759Z</updated>
+  <updated>2017-03-25T11:28:28.796Z</updated>
   <id>https://eetze.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://eetze.github.io/2017/03/17/hello-world/"/>
     <id>https://eetze.github.io/2017/03/17/hello-world/</id>
     <published>2017-03-17T05:15:06.010Z</published>
-    <updated>2017-03-25T11:09:33.759Z</updated>
+    <updated>2017-03-25T11:28:28.796Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <blockquote class="blockquote-center">不忘初心，测试</blockquote>
