@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>%2F2017%2F03%2F17%2Fhello-world%2F</url>
+      <url>%2F2017%2F04%2F10%2Fhello-world%2F</url>
       <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" Run server1$ hexo server Generate static files1$ hexo generate Deploy to remote sites1$ hexo deploy]]></content>
     </entry>
 
