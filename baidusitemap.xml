@@ -4,18 +4,23 @@
 
     
   <url>
-    <loc>https://eetze.github.io/2017/04/10/hello-world/</loc>
-    <lastmod>2017-03-27T14:34:06.389Z</lastmod>
+    <loc>https://eetze.github.io/2017/04/12/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8Bash/</loc>
+    <lastmod>2017-04-12T14:28:19.524Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2017-04-10T07:37:33.433Z</pubTime>
+        <title>Windows下使用Bash</title>
+        <pubTime>2017-04-12T05:39:49.000Z</pubTime>
         
+        <tag>BashOnWindows</tag>
+         
+        <tag>Bash</tag>
+         
+        <tag>Cmder</tag>
+         
+        <tag>Zsh</tag>
+         
          
            
-             
-              <breadCrumb title="Android OpenGL ES 2.0 基础" url="https://eetze.github.io/categories/Android-OpenGL-ES-2-0-%E5%9F%BA%E7%A1%80/"/>
-          
         </display>
     </data>
     </url>
