@@ -1,13 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   
+  
     
     <entry>
       <title><![CDATA[Windows下使用Bash]]></title>
-      <url>%2F2017%2F04%2F12%2FWindows%E4%B8%8B%E4%BD%BF%E7%94%A8Bash%2F</url>
-      <content type="text"><![CDATA[在 Windows10 14316 版本中更新了 Bash on Ubuntu on Windows 功能，允许在 Windows 上运行 Ubuntu Bash，虽然与原生的Bash相比还有些缺陷，不过大部分功能还是能够正常使用的。 安装 BashOnWindows检查Windows10版本想要使用 BashOnWindows 需要Windows10版本为 14316 以上版本，可以通过下面三种方法查看当前Windows10版本。 打开cmd命令行，最上面会显示当前版本。 使用cmd命令，输入 ver 可以查看当前版本。 在运行中输入 msinfo32，可在系统信息中查看当前版本。 打开开发人员模式在 windwos 的 设置 中打开 更新和安全 ，然后在左侧列表中选择 针对开发人员 ,右侧选择 开发人员模式。如果提示失败则检查 Windows Update 服务是否已经打开。 下载BashOnWindows在 控制面板 中打开 程序 ，然后在 程序和功能 中打开 启用或关闭Windows功能 ，接着在弹出的窗口中勾选 适用于Linux的Windows子系统(Beta) ，系统会下载更新并提示重启机器。 系统重启完成后，进入cmd命令行，输入 bash 后会提示你是否继续，选择 y ，系统会安装 Ubuntu Bash ，等待安装完成后会提示创建账号，之后就进入熟悉的Bash了。可能会遇到安装失败，因为下载节点在国外，这个时候打开代理便可以进行下载。 之后就可以在 cmd 或者 PowerShell 中输入 bash 进入 Bash 了。 更换软件更新源把下面的阿里源内容粘贴到 /etc/apt/sources.list ，之后运行 sudo apt-get update 完成更新后就可以通过 apt-get 进行常用软件的安装了。 12345678910deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse Cmder启动Bash如果经常使用Bash的话，使用cmd 的配色会感觉过于朴实，接下来通过 Cmder 来对 Bash 进行美化。 Cmder下载首先登录 Cmder官网 进行下载，下载时会有 mini 与 full 两个版版，其差别在于有没有内建git-for-windows工具，选择full版本进行下载。 下载完成后会得到一个压缩包，解压完成即可使用。 右键添加在当前位置打开想要快捷方便的打开 Cmder ，一般会将其添加到鼠标右键菜单中。在 Cmder.exe 所在文件夹打开带管理员权限的 cmd 命令行，输入如下指令。 1Cmder.exe /REGISTER ALL 之后就可以在任意位置通过鼠标右键打开Cmder了。 使用Cmder打开Bash安装 Cmder 的目的就是希望通过它来代替 cmd 打开 Bash ，接下来就是设置如何打开 Bash 。 在 Cmder 中选择 Setting ，然后在 Startup -&gt; Tasks -&gt; {cmd::Cmder} 中输入如下启动方式，这样就可以通过鼠标右键菜单打开 Bash 了，并且是在当前文件夹打开，同时也避免了在 Vim 中方向键失灵的问题。 1cmd /k &quot;%ConEmuDir%\..\init.bat&quot; -new_console:p:n%USERPROFILE% &amp;bash 但是设置完如上启动方式之后，每次关闭时都会弹出提示框提示 Confirm closing console? ，只需要在 Setting -&gt; Main -&gt; Confirm -&gt; Close confirmations 中取消 When running process was detected 前面选中状态，就可以关闭提示框的弹出。 Zsh代替BashBash 虽然很不错，但是 Zsh 在自动补全方面的强大还是让我投入 Zsh 的怀抱，另外 Zsh 的主题用起来也很方便。 安装ZshZsh 安装起来简单，但是配置起来却十分麻烦，不过还好已经有了 oh-my-zsh ， 直接通过在 Bash 下输入下面指令安装 Zsh 及配置。 1sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot; 或者 1sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot; 安装完成后就可以在 Bash 中输入 zsh 进入 Zsh。 Zsh主题oh-my-zsh 中有140多种主题供选择，可以去 oh-my-zsh主题 页面选择自己喜欢的主题。 选择好自己喜欢的主题后打开 ~/.zshrc ，修改 ZSH_THEME 为自己选择的主题名字即可。例如下面就是将主题设置为 ys 主题。 Bash默认启动Zsh每次运行 Cmder 现在已经默认启动 Bash 了，但是进入 Zsh 还要手动输入，接下来就是设置启动 Bash 时自动进入 Zsh。 在 ~/.bashrc 文件末尾添加如下代码，即可实现 Zsh 的自动进入了。 1bash -c zsh]]></content>
+      <url>https://eetze.github.io/2017/04/12/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8Bash/</url>
+      <content type="html"><![CDATA[<div class="note primary"><p>在 Windows10 <code>14316</code> 版本中更新了 <code>Bash on Ubuntu on Windows</code> 功能，允许在 Windows 上运行 Ubuntu Bash，虽然与原生的Bash相比还有些缺陷，不过大部分功能还是能够正常使用的。 </p>
+</div>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412135721.png" alt="logo"></p>
+<a id="more"></a>
+<hr>
+<h3 id="安装-BashOnWindows"><a href="#安装-BashOnWindows" class="headerlink" title="安装 BashOnWindows"></a>安装 BashOnWindows</h3><h4 id="检查Windows10版本"><a href="#检查Windows10版本" class="headerlink" title="检查Windows10版本"></a>检查Windows10版本</h4><p>想要使用 <code>BashOnWindows</code> 需要Windows10版本为 <code>14316</code> 以上版本，可以通过下面三种方法查看当前Windows10版本。</p>
+<ul>
+<li>打开cmd命令行，最上面会显示当前版本。</li>
+</ul>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412134410.png" alt="logo"></p>
+<ul>
+<li>使用cmd命令，输入 ver 可以查看当前版本。</li>
+</ul>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412134501.png" alt="logo"></p>
+<ul>
+<li>在运行中输入 msinfo32，可在系统信息中查看当前版本。</li>
+</ul>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412134605.png" alt="logo"></p>
+<h4 id="打开开发人员模式"><a href="#打开开发人员模式" class="headerlink" title="打开开发人员模式"></a>打开开发人员模式</h4><p>在 windwos 的 <code>设置</code> 中打开 <code>更新和安全</code> ，然后在左侧列表中选择 <code>针对开发人员</code> ,右侧选择 <code>开发人员模式</code>。如果提示失败则检查 <code>Windows Update</code> 服务是否已经打开。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412140708.png" alt="logo"></p>
+<h4 id="下载BashOnWindows"><a href="#下载BashOnWindows" class="headerlink" title="下载BashOnWindows"></a>下载BashOnWindows</h4><p>在 <code>控制面板</code> 中打开 <code>程序</code> ，然后在 <code>程序和功能</code> 中打开 <code>启用或关闭Windows功能</code> ，接着在弹出的窗口中勾选 <code>适用于Linux的Windows子系统(Beta)</code> ，系统会下载更新并提示重启机器。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412141538.png" alt="logo"></p>
+<p>系统重启完成后，进入cmd命令行，输入 bash 后会提示你是否继续，选择 y ，系统会安装 Ubuntu Bash ，等待安装完成后会提示创建账号，之后就进入熟悉的Bash了。可能会遇到安装失败，因为下载节点在国外，这个时候打开代理便可以进行下载。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412143808.png" alt="logo"></p>
+<p>之后就可以在 cmd 或者 PowerShell 中输入 bash 进入 Bash 了。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412145518.png" alt="logo"></p>
+<h4 id="更换软件更新源"><a href="#更换软件更新源" class="headerlink" title="更换软件更新源"></a>更换软件更新源</h4><p>把下面的阿里源内容粘贴到 <code>/etc/apt/sources.list</code> ，之后运行 <code>sudo apt-get update</code> 完成更新后就可以通过 <code>apt-get</code> 进行常用软件的安装了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</div><div class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</div><div class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Cmder启动Bash"><a href="#Cmder启动Bash" class="headerlink" title="Cmder启动Bash"></a>Cmder启动Bash</h3><p>如果经常使用Bash的话，使用cmd 的配色会感觉过于朴实，接下来通过 Cmder 来对 Bash 进行美化。</p>
+<h4 id="Cmder下载"><a href="#Cmder下载" class="headerlink" title="Cmder下载"></a>Cmder下载</h4><p>首先登录 <a href="http://cmder.net/" target="_blank" rel="external">Cmder官网</a> 进行下载，下载时会有 mini 与 full 两个版版，其差别在于有没有内建git-for-windows工具，选择full版本进行下载。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412151059.png" alt="logo"></p>
+<p>下载完成后会得到一个压缩包，解压完成即可使用。</p>
+<h4 id="右键添加在当前位置打开"><a href="#右键添加在当前位置打开" class="headerlink" title="右键添加在当前位置打开"></a>右键添加在当前位置打开</h4><p>想要快捷方便的打开 Cmder ，一般会将其添加到鼠标右键菜单中。在 Cmder.exe 所在文件夹打开带管理员权限的 cmd 命令行，输入如下指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cmder.exe /REGISTER ALL</div></pre></td></tr></table></figure>
+<p>之后就可以在任意位置通过鼠标右键打开Cmder了。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412160423.png" alt="logo"></p>
+<h4 id="使用Cmder打开Bash"><a href="#使用Cmder打开Bash" class="headerlink" title="使用Cmder打开Bash"></a>使用Cmder打开Bash</h4><p>安装 Cmder 的目的就是希望通过它来代替 cmd 打开 Bash ，接下来就是设置如何打开 Bash 。</p>
+<p>在 Cmder 中选择 <code>Setting</code> ，然后在 <code>Startup</code> -&gt; <code>Tasks</code> -&gt; <code>{cmd::Cmder}</code> 中输入如下启动方式，这样就可以通过鼠标右键菜单打开 Bash 了，并且是在当前文件夹打开，同时也避免了在 Vim 中方向键失灵的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmd /k &quot;%ConEmuDir%\..\init.bat&quot;  -new_console:p:n%USERPROFILE% &amp;bash</div></pre></td></tr></table></figure>
+<p>但是设置完如上启动方式之后，每次关闭时都会弹出提示框提示 <code>Confirm closing console?</code> ，只需要在 <code>Setting</code> -&gt; <code>Main</code> -&gt; <code>Confirm</code> -&gt; <code>Close confirmations</code> 中取消 <code>When running process was detected</code> 前面选中状态，就可以关闭提示框的弹出。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412161554.png" alt="logo"></p>
+<hr>
+<h3 id="Zsh代替Bash"><a href="#Zsh代替Bash" class="headerlink" title="Zsh代替Bash"></a>Zsh代替Bash</h3><p>Bash 虽然很不错，但是 Zsh 在自动补全方面的强大还是让我投入 Zsh 的怀抱，另外 Zsh 的主题用起来也很方便。</p>
+<h4 id="安装Zsh"><a href="#安装Zsh" class="headerlink" title="安装Zsh"></a>安装Zsh</h4><p>Zsh 安装起来简单，但是配置起来却十分麻烦，不过还好已经有了 <a href="https://github.com/robbyrussell/oh-my-zsh/" target="_blank" rel="external">oh-my-zsh</a> ， 直接通过在 Bash 下输入下面指令安装 Zsh 及配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</div></pre></td></tr></table></figure>
+<p>安装完成后就可以在 Bash 中输入 zsh 进入 Zsh。</p>
+<h4 id="Zsh主题"><a href="#Zsh主题" class="headerlink" title="Zsh主题"></a>Zsh主题</h4><p>oh-my-zsh 中有140多种主题供选择，可以去 <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">oh-my-zsh主题</a> 页面选择自己喜欢的主题。</p>
+<p>选择好自己喜欢的主题后打开 <code>~/.zshrc</code> ，修改 <code>ZSH_THEME</code> 为自己选择的主题名字即可。例如下面就是将主题设置为 <code>ys</code> 主题。</p>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412164748.png" alt="logo"></p>
+<h4 id="Bash默认启动Zsh"><a href="#Bash默认启动Zsh" class="headerlink" title="Bash默认启动Zsh"></a>Bash默认启动Zsh</h4><p>每次运行 Cmder 现在已经默认启动 Bash 了，但是进入 Zsh 还要手动输入，接下来就是设置启动 Bash 时自动进入 Zsh。</p>
+<p>在 <code>~/.bashrc</code> 文件末尾添加如下代码，即可实现 Zsh 的自动进入了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash -c zsh</div></pre></td></tr></table></figure>
+<p><img src="/2017/04/12/Windows下使用Bash/20170412173246.png" alt="logo"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> BashOnWindows </tag>
+            
+            <tag> Bash </tag>
+            
+            <tag> Cmder </tag>
+            
+            <tag> Zsh </tag>
+            
+        </tags>
+        
     </entry>
-
     
   
   
