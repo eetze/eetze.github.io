@@ -115,7 +115,7 @@
 <meta property="og:description" content="OpenGL ES (OpenGL for Embedded Systems) 是针对手机、PDA和游戏主机等嵌入式设备而设计发展的 3D 绘图接口。OpenGL ES 是一个叫做 Khronos 组织创造的一系列接口中的一个。Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准。">
 <meta property="og:image" content="https://eetze.github.io/2017/04/17/GLES20-00/opengles.png">
 <meta property="og:image" content="https://eetze.github.io/2017/04/17/GLES20-00/Version.png">
-<meta property="og:updated_time" content="2017-04-20T14:34:26.571Z">
+<meta property="og:updated_time" content="2017-04-20T14:37:41.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL ES 2.0基础教程（0）：OpenGL ES 简介">
 <meta name="twitter:description" content="OpenGL ES (OpenGL for Embedded Systems) 是针对手机、PDA和游戏主机等嵌入式设备而设计发展的 3D 绘图接口。OpenGL ES 是一个叫做 Khronos 组织创造的一系列接口中的一个。Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准。">
@@ -431,8 +431,8 @@
       
         <div class="note primary"><p>OpenGL ES (OpenGL for Embedded Systems) 是针对手机、PDA和游戏主机等嵌入式设备而设计发展的 3D 绘图接口。OpenGL ES 是一个叫做 <a href="https://www.khronos.org/" target="_blank" rel="external">Khronos</a> 组织创造的一系列接口中的一个。Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准。 </p>
 </div>
-<a id="more"></a>
 <p><img src="/2017/04/17/GLES20-00/opengles.png" alt="logo"></p>
+<a id="more"></a>
 <hr>
 <h3 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h3><p>OpenGL (Open Graphics Library) 是一个跨编程语言、跨平台的专业底层图形接口，其具有功能强大、调用方便等特点，因此在 2D/3D 图形领域中被广泛使用。因为受制于嵌入式设备的硬件基础，因此 OpenGL 并不适用于嵌入式设备，所以 Khronos 团队对 OpenGL 进行了适当修改以适用于嵌入式设备，而 OpenGL ES 就是在 OpenGL 基础上进行裁剪定制而来的针对于嵌入式设备的图形接口，所以说 OpenGL ES 就是 OpenGL 的子集。</p>
 <p>创建 OpenGL ES 的初衷是建立一个适合嵌入式设备驱动程序，为此 Khronos 团队删除了一些 OpenGL 中的冗余设计，对于同一种操作有多种适用方法的，只留下其主要的方法，多余的方法均被删除。例如绘制一个几何体，OpenGL 中可以使用立即模式、显示列表、顶点矩阵三种方法，但是在 OpenGL ES 中只能使用顶点矩阵，显示列表和立即模式被移除。</p>
