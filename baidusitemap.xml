@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>https://eetze.github.io/2017/04/19/GLES20-01/</loc>
+    <lastmod>2017-04-20T14:29:35.517Z</lastmod>
+    <data>
+        <display>
+        <title>OpenGL ES 2.0基础教程（1）：渲染管线</title>
+        <pubTime>2017-04-19T06:12:16.000Z</pubTime>
+        
+        <tag>OpenGL ES 2.0</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>渲染管线</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android OpenGL ES 2.0基础教程" url="https://eetze.github.io/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://eetze.github.io/2017/04/17/GLES20-00/</loc>
-    <lastmod>2017-04-18T01:18:29.395Z</lastmod>
+    <lastmod>2017-04-19T06:34:33.279Z</lastmod>
     <data>
         <display>
         <title>OpenGL ES 2.0基础教程（0）：OpenGL ES 简介</title>

@@ -115,7 +115,7 @@
 <meta property="og:description" content="OpenGL ES (OpenGL for Embedded Systems) 是针对手机、PDA和游戏主机等嵌入式设备而设计发展的 3D 绘图接口。OpenGL ES 是一个叫做 Khronos 组织创造的一系列接口中的一个。Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准。">
 <meta property="og:image" content="https://eetze.github.io/2017/04/17/GLES20-00/opengles.png">
 <meta property="og:image" content="https://eetze.github.io/2017/04/17/GLES20-00/Version.png">
-<meta property="og:updated_time" content="2017-04-18T01:18:29.395Z">
+<meta property="og:updated_time" content="2017-04-19T06:34:33.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL ES 2.0基础教程（0）：OpenGL ES 简介">
 <meta name="twitter:description" content="OpenGL ES (OpenGL for Embedded Systems) 是针对手机、PDA和游戏主机等嵌入式设备而设计发展的 3D 绘图接口。OpenGL ES 是一个叫做 Khronos 组织创造的一系列接口中的一个。Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准。">
@@ -441,6 +441,18 @@
 <p><img src="/2017/04/17/GLES20-00/Version.png" alt="logo"></p>
 <p>因为 OpenGL ES 均是发展自 OpenGL，也就意味着 OpenGL 是 OpenGL ES 的基础，决定着未来 OenGL ES 的版本。</p>
 <hr>
+<h3 id="向后兼容"><a href="#向后兼容" class="headerlink" title="向后兼容"></a>向后兼容</h3><p>OpenGL ES 2.0 不支持向后兼容 OpenGL ES 1.x，因为它不支持固定功能的管线。OpenGL ES 2.0 中使用可编程顶点着色器取代 OpenGL ES 1.x 固定功能的顶点着色器。</p>
+<p>OpenGL ES 2.0 工作组决定不提供向后兼容能力主要基于如下考虑：</p>
+<ol>
+<li><p>提供对固定功能管线的支持也就是暗示 API 将支持多种的方法执行一个特性，这违背了设计的初衷，可编程管线即使提供对固定管线的支持，也不会获得更多的注意。</p>
+</li>
+<li><p>对硬件供应商来说，那将有更多的工作要做，而可编程管线能提供更多的灵活性。</p>
+</li>
+<li><p>即支持固定管线，又支持可编程管线意味着设备需要更多的内存，而如果分离固定管线和可编程管线，厂商就不需要更多的驱动支持。</p>
+</li>
+</ol>
+<p>而且，不同于 OpenGL ES 1.x，OpenGL ES 2.0 中没有配置文件或扩展命令。</p>
+<hr>
 <h3 id="Android系统支持"><a href="#Android系统支持" class="headerlink" title="Android系统支持"></a>Android系统支持</h3><p>OpenGL ES 1.x 支持 初代 Android<br>OpenGL ES 2.0 支持 Android 2.2 以后的平台。<br>OpenGL ES 3.0 支持 Android 4.3 以后的平台。</p>
 
       
@@ -520,6 +532,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/04/19/GLES20-01/" rel="prev" title="OpenGL ES 2.0基础教程（1）：渲染管线">
+                OpenGL ES 2.0基础教程（1）：渲染管线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -590,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -608,7 +624,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -711,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#由来"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发展"><span class="nav-number">2.</span> <span class="nav-text">发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android系统支持"><span class="nav-number">3.</span> <span class="nav-text">Android系统支持</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#由来"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发展"><span class="nav-number">2.</span> <span class="nav-text">发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向后兼容"><span class="nav-number">3.</span> <span class="nav-text">向后兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android系统支持"><span class="nav-number">4.</span> <span class="nav-text">Android系统支持</span></a></li></ol></div>
             
 
           </div>

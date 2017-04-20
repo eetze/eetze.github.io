@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OpenGL ES 2.0,Android,渲染管线," />
 
 
 
@@ -107,15 +107,19 @@
 
 
 
-<meta name="description" content="既然选择了远方 便只顾风雨兼程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Eetze的博客">
-<meta property="og:url" content="https://eetze.github.io/archives/2017/index.html">
+<meta name="description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenGL ES 2.0基础教程（1）：渲染管线">
+<meta property="og:url" content="https://eetze.github.io/2017/04/19/GLES20-01/index.html">
 <meta property="og:site_name" content="Eetze的博客">
-<meta property="og:description" content="既然选择了远方 便只顾风雨兼程">
+<meta property="og:description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
+<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/Pipeline.png">
+<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/VertexShader.png">
+<meta property="og:updated_time" content="2017-04-20T14:29:35.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eetze的博客">
-<meta name="twitter:description" content="既然选择了远方 便只顾风雨兼程">
+<meta name="twitter:title" content="OpenGL ES 2.0基础教程（1）：渲染管线">
+<meta name="twitter:description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
+<meta name="twitter:image" content="https://eetze.github.io/2017/04/19/GLES20-01/Pipeline.png">
 
 
 
@@ -143,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://eetze.github.io/archives/2017/"/>
+  <link rel="canonical" href="https://eetze.github.io/2017/04/19/GLES20-01/"/>
 
 
 
 
 
-  <title> 归档 | Eetze的博客 </title>
+  <title> OpenGL ES 2.0基础教程（1）：渲染管线 | Eetze的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +188,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  page-archive  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,140 +314,252 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 3 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/19/GLES20-01/" itemprop="url">
-              
-                <span itemprop="name">OpenGL ES 2.0基础教程（1）：渲染管线</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-19T14:12:16+08:00"
-              content="2017-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/17/GLES20-00/" itemprop="url">
-              
-                <span itemprop="name">OpenGL ES 2.0基础教程（0）：OpenGL ES 简介</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-17T15:41:17+08:00"
-              content="2017-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/12/BashOnWindows/" itemprop="url">
-              
-                <span itemprop="name">Windows下使用Bash</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-12T13:39:49+08:00"
-              content="2017-04-12" >
-          04-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://eetze.github.io/2017/04/19/GLES20-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eetze">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eetze的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                OpenGL ES 2.0基础教程（1）：渲染管线
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T14:12:16+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-OpenGL-ES-2-0基础教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Android OpenGL ES 2.0基础教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/19/GLES20-01/" class="leancloud_visitors" data-flag-title="OpenGL ES 2.0基础教程（1）：渲染管线">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note primary"><p>大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。 </p>
+</div>
+<a id="more"></a>
+<h3 id="可编程渲染管线"><a href="#可编程渲染管线" class="headerlink" title="可编程渲染管线"></a>可编程渲染管线</h3><p>在 OpenGL ES 1.x 版本中支持固定管线，而 OpenGL ES 2.0 版本不再支持固定管线，只支持可编程管线，比起 OpenGL ES 1.x 中的固定管线要复杂和灵活很多。可编程管线就是说管线中某些操作可以动态编程实现而不必固定写死在代码中。那可编程管线有什么好处呢？主要是方便动态修改渲染过程，而无需重写编译代码，当然也和很多脚本语言一样，调试起来不太方便。</p>
+<p>下图为 OpenGL ES 2.0 渲染管线，阴影部分为可编程着色器。可动态编程实现这一功能通常都是通过脚本实现的，在 OpenGL ES 中也一样，编写着色器脚本的是由着色语言 (Shader Language) 提供的。</p>
+<p><img src="/2017/04/19/GLES20-01/Pipeline.png" alt="logo"></p>
+<hr>
+<h3 id="Vertex-Arrays-Buffer-Objects"><a href="#Vertex-Arrays-Buffer-Objects" class="headerlink" title="Vertex Arrays/Buffer Objects"></a>Vertex Arrays/Buffer Objects</h3><p>Vertex Buffer Object 简称 <strong>VBO</strong>，顶点缓冲区对象，它是GPU里面的一块缓冲区，当我们需要传递数据的时候，可以先向GPU申请一块内存，然后往里面填充数据。最后，再通过调用glVertexAttribPointer把数据传递给Vertex Shader。  </p>
+<p>Vertex Arrays Object 简称 <strong>VAO</strong>，顶点数组对象，它的作用主要是记录当前有哪些VBO，每个VBO里面绑定的是什么数据，还有每一个 vertex attribute 绑定的是哪一个VBO。</p>
+<p>VBO/VAO 是渲染管线的顶点数据来源，是CPU提供给GPU的，包括了顶点的位置、颜色、纹理坐标（用于纹理贴图）等顶点信息。 </p>
+<hr>
+<h3 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h3><p>Vertex Shader （<strong>顶点着色器</strong>）是处理 VBO/VAO 提供的顶点信息的程序，VBO/VAO提供的每个顶点都执行一遍顶点着色器程序。 通过可编程的方式实现对顶点的操作，如进行基于矩阵变换位置，进行光照计算来生成每个顶点的颜色，生成或者变换纹理坐标，另外因为顶点着色器是由应用程序指定的，所以你可以用来进行任意自定义的顶点变换。下图展示的顶点着色器的输入/输出情况：</p>
+<p><img src="/2017/04/19/GLES20-01/VertexShader.png" alt="log"></p>
+<h4 id="顶点着色器的输入"><a href="#顶点着色器的输入" class="headerlink" title="顶点着色器的输入"></a>顶点着色器的输入</h4><ul>
+<li>Attributes：使用顶点数组封装每个顶点的数据，一般用于每个顶点都各不相同的变量，如顶点位置、颜色等。</li>
+<li>Uniforms：顶点着色器使用的常量数据，不能被着色器修改，一般用于对同一组顶点组成的单个3D物体中所有顶点都相同的变量，如当前光源的位置。</li>
+<li>Samplers：这个是可选的，一种特殊的 Uniforms ，表示顶点着色器使用的纹理。</li>
+</ul>
+<h4 id="顶点着色器的输出"><a href="#顶点着色器的输出" class="headerlink" title="顶点着色器的输出"></a>顶点着色器的输出</h4><ul>
+<li>Varying：顶点着色器的输出变量，作为片元着色器（Fragment Shader）的输入。在图元光栅化阶段，这些 Varying 值为每个生成的片元进行计算，并将结果作为片元着色器的输入数据。从分配给每个顶点的原始 Varying 值来为每个片元生成一个 Varying 值的机制叫做插值。</li>
+</ul>
+<h4 id="顶点着色器的特殊输出变量"><a href="#顶点着色器的特殊输出变量" class="headerlink" title="顶点着色器的特殊输出变量"></a>顶点着色器的特殊输出变量</h4><ul>
+<li>gl_Postion：以裁剪坐标的方式输出“顶点位置”，且是一个highp变量。</li>
+<li>gl_FrontFacing：以像素为单位输出“点的大小”，其值被限制在OpenGL ES 2.0可实现的范围内，且是一个mediump变量。</li>
+<li>gl_PointSize：不直接由Vertex Shader写，是一个boolean变量。</li>
+</ul>
+<hr>
+<h3 id="Primitive-Assembly"><a href="#Primitive-Assembly" class="headerlink" title="Primitive Assembly"></a>Primitive Assembly</h3><p>Primitive Assembly（<strong>图元装配</strong>)，经过着色器处理之后的顶点在图片装配阶段被装配为基本图元，图元是一个能用OpenGL ES绘图命令绘制的几何体，绘图命令指定了一组顶点属性，描述了图元的几何形状和图元类型，OpenGL ES 支持三种基本图元：点，线和三角形，它们是可被 OpenGL ES 渲染的。</p>
+<p>在图元装配阶段，这些顶点着色器处理过的顶点被组装到一个个独立的几何图元中，对于每个图元都必须确定它是否位于视椎体内（三维空间显示在屏幕上的可见区域），如果图元部分在视椎体中，需要进行裁剪，如果图元全部在视椎体外，则直接丢弃图元。裁剪之后，顶点位置转换成了屏幕坐标。背面剔除操作也会执行，它根据图元是正面还是背面，如果是背面则丢弃该图元。</p>
+<ul>
+<li>裁剪（Clip）：保留完全在视锥体中的图元，丢弃完全不在视锥体中的图元，对一半在一半不在的图元进行裁剪。</li>
+<li>剔除（Cull）：这个过程可编码来决定是剔除正面、背面还是全部剔除。</li>
+</ul>
+<hr>
+<h3 id="Rasterization"><a href="#Rasterization" class="headerlink" title="Rasterization"></a>Rasterization</h3><p>Rasterization（<strong>光栅化</strong>），在光栅化阶段，基本图元被转换为二维的片元(Fragment)，Fragment 表示可以被渲染到屏幕上的像素，它包含位置，颜色，纹理坐标等信息，这些值是由图元的顶点信息进行插值计算得到的。这些片元接着被送到片元着色器中处理。这是从顶点数据到可渲染在显示设备上的像素的质变过程。</p>
+<p>用于从分配给每个图元顶点的顶点着色器输出生成每个片段值的机制称作插值（Interpolation）。这句不是人话的话解释了一个问题，就是从CPU提供的分散的顶点信息是如何变成屏幕上密集的像素的，图元装配后顶点可以理解成变为图形，光栅化时可以根据图形的形状，插值出那个图形区域的像素（纹理坐标v_texCoord、颜色等信息）。注意，此时的像素并不是屏幕上的像素，是不带有颜色的。接下来的片元着色器完成上色的工作。总之，光栅化阶段把图元转换成片元集合，之后会提交给片元着色器处理，这些片元集合表示可以被绘制到屏幕的像素。</p>
+
+      
+    </div>
+
+	  
+		
+		<div>
+		</div>
+		<div>
+		</div>
+		
+		<div>
+			<ul class="post-copyright">
+				<li class="post-copyright-author">
+					<strong>本文作者：</strong>
+					Eetze
+				</li>
+				
+				<li class="post-copyright-link">
+					<strong>本文链接：</strong>
+					<a href="/2017/04/19/GLES20-01/" title="OpenGL ES 2.0基础教程（1）：渲染管线">https://eetze.github.io/2017/04/19/GLES20-01/</a>
+				</li>
+				
+				<li class="post-copyright-license">
+					<strong>版权声明： </strong>
+					本博客所有文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+				</li>
+			</ul>
+		</div>
+		
+		
+	  
+
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenGL-ES-2-0/" rel="tag"># OpenGL ES 2.0</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/渲染管线/" rel="tag"># 渲染管线</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/17/GLES20-00/" rel="next" title="OpenGL ES 2.0基础教程（0）：OpenGL ES 简介">
+                <i class="fa fa-chevron-left"></i> OpenGL ES 2.0基础教程（0）：OpenGL ES 简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -451,6 +567,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -470,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -598,6 +727,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#可编程渲染管线"><span class="nav-number">1.</span> <span class="nav-text">可编程渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vertex-Arrays-Buffer-Objects"><span class="nav-number">2.</span> <span class="nav-text">Vertex Arrays/Buffer Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vertex-Shader"><span class="nav-number">3.</span> <span class="nav-text">Vertex Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的输入"><span class="nav-number">3.1.</span> <span class="nav-text">顶点着色器的输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的输出"><span class="nav-number">3.2.</span> <span class="nav-text">顶点着色器的输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的特殊输出变量"><span class="nav-number">3.3.</span> <span class="nav-text">顶点着色器的特殊输出变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Primitive-Assembly"><span class="nav-number">4.</span> <span class="nav-text">Primitive Assembly</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rasterization"><span class="nav-number">5.</span> <span class="nav-text">Rasterization</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -709,11 +854,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
