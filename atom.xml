@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://eetze.github.io/"/>
-  <updated>2017-04-20T14:29:35.517Z</updated>
+  <updated>2017-04-21T06:54:27.878Z</updated>
   <id>https://eetze.github.io/</id>
   
   <author>
@@ -20,20 +20,20 @@
     <link href="https://eetze.github.io/2017/04/19/GLES20-01/"/>
     <id>https://eetze.github.io/2017/04/19/GLES20-01/</id>
     <published>2017-04-19T06:12:16.000Z</published>
-    <updated>2017-04-20T14:29:35.517Z</updated>
+    <updated>2017-04-21T06:54:27.878Z</updated>
     
     <content type="html"><![CDATA[<div class="note primary"><p>大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。 </p>
 </div>
 <a id="more"></a>
-<h3 id="可编程渲染管线"><a href="#可编程渲染管线" class="headerlink" title="可编程渲染管线"></a>可编程渲染管线</h3><p>在 OpenGL ES 1.x 版本中支持固定管线，而 OpenGL ES 2.0 版本不再支持固定管线，只支持可编程管线，比起 OpenGL ES 1.x 中的固定管线要复杂和灵活很多。可编程管线就是说管线中某些操作可以动态编程实现而不必固定写死在代码中。那可编程管线有什么好处呢？主要是方便动态修改渲染过程，而无需重写编译代码，当然也和很多脚本语言一样，调试起来不太方便。</p>
+<h3 id="可编程渲染管线"><a href="#可编程渲染管线" class="headerlink" title="可编程渲染管线"></a>可编程渲染管线</h3><p>在 OpenGL ES 1.x 版本中支持固定管线，而 <strong>OpenGL ES 2.0 版本不再支持固定管线，只支持可编程管线</strong>，比起 OpenGL ES 1.x 中的固定管线要复杂和灵活很多。可编程管线就是说管线中某些操作可以动态编程实现而不必固定写死在代码中。那可编程管线有什么好处呢？主要是方便动态修改渲染过程，而无需重写编译代码，当然也和很多脚本语言一样，调试起来不太方便。</p>
 <p>下图为 OpenGL ES 2.0 渲染管线，阴影部分为可编程着色器。可动态编程实现这一功能通常都是通过脚本实现的，在 OpenGL ES 中也一样，编写着色器脚本的是由着色语言 (Shader Language) 提供的。</p>
 <p><img src="/2017/04/19/GLES20-01/Pipeline.png" alt="logo"></p>
 <hr>
-<h3 id="Vertex-Arrays-Buffer-Objects"><a href="#Vertex-Arrays-Buffer-Objects" class="headerlink" title="Vertex Arrays/Buffer Objects"></a>Vertex Arrays/Buffer Objects</h3><p>Vertex Buffer Object 简称 <strong>VBO</strong>，顶点缓冲区对象，它是GPU里面的一块缓冲区，当我们需要传递数据的时候，可以先向GPU申请一块内存，然后往里面填充数据。最后，再通过调用glVertexAttribPointer把数据传递给Vertex Shader。  </p>
-<p>Vertex Arrays Object 简称 <strong>VAO</strong>，顶点数组对象，它的作用主要是记录当前有哪些VBO，每个VBO里面绑定的是什么数据，还有每一个 vertex attribute 绑定的是哪一个VBO。</p>
+<h3 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h3><p><strong>顶点缓冲区对象</strong>（Vertex Buffer Object） 简称 <strong>VBO</strong>，它是GPU里面的一块缓冲区，当我们需要传递数据的时候，可以先向GPU申请一块内存，然后往里面填充数据。最后，再通过调用glVertexAttribPointer把数据传递给Vertex Shader。  </p>
+<p><strong>顶点数组对象</strong>（Vertex Arrays Object） 简称 <strong>VAO</strong>，它的作用主要是记录当前有哪些VBO，每个VBO里面绑定的是什么数据，还有每一个 vertex attribute 绑定的是哪一个VBO。</p>
 <p>VBO/VAO 是渲染管线的顶点数据来源，是CPU提供给GPU的，包括了顶点的位置、颜色、纹理坐标（用于纹理贴图）等顶点信息。 </p>
 <hr>
-<h3 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h3><p>Vertex Shader （<strong>顶点着色器</strong>）是处理 VBO/VAO 提供的顶点信息的程序，VBO/VAO提供的每个顶点都执行一遍顶点着色器程序。 通过可编程的方式实现对顶点的操作，如进行基于矩阵变换位置，进行光照计算来生成每个顶点的颜色，生成或者变换纹理坐标，另外因为顶点着色器是由应用程序指定的，所以你可以用来进行任意自定义的顶点变换。下图展示的顶点着色器的输入/输出情况：</p>
+<h3 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h3><p><strong>顶点着色器</strong> （Vertex Shader）是处理 VBO/VAO 提供的顶点信息的程序，VBO/VAO提供的每个顶点都执行一遍顶点着色器程序。 <strong>通过可编程的方式实现对顶点的操作，如进行基于矩阵变换位置，进行光照计算来生成每个顶点的颜色，生成或者变换纹理坐标</strong>，另外因为顶点着色器是由应用程序指定的，所以你可以用来进行任意自定义的顶点变换。下图展示为顶点着色器的输入/输出情况：</p>
 <p><img src="/2017/04/19/GLES20-01/VertexShader.png" alt="log"></p>
 <h4 id="顶点着色器的输入"><a href="#顶点着色器的输入" class="headerlink" title="顶点着色器的输入"></a>顶点着色器的输入</h4><ul>
 <li>Attributes：使用顶点数组封装每个顶点的数据，一般用于每个顶点都各不相同的变量，如顶点位置、颜色等。</li>
@@ -49,15 +49,40 @@
 <li>gl_PointSize：不直接由Vertex Shader写，是一个boolean变量。</li>
 </ul>
 <hr>
-<h3 id="Primitive-Assembly"><a href="#Primitive-Assembly" class="headerlink" title="Primitive Assembly"></a>Primitive Assembly</h3><p>Primitive Assembly（<strong>图元装配</strong>)，经过着色器处理之后的顶点在图片装配阶段被装配为基本图元，图元是一个能用OpenGL ES绘图命令绘制的几何体，绘图命令指定了一组顶点属性，描述了图元的几何形状和图元类型，OpenGL ES 支持三种基本图元：点，线和三角形，它们是可被 OpenGL ES 渲染的。</p>
+<h3 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h3><p><img src="/2017/04/19/GLES20-01/PrimitiveAssembly.png" alt="logo"></p>
+<p><strong>图元装配</strong>（Primitive Assembly)，经过着色器处理之后的<strong>顶点在图元装配阶段被装配为基本图元</strong>，图元是一个能用OpenGL ES绘图命令绘制的几何体，绘图命令指定了一组顶点属性，描述了图元的几何形状和图元类型，OpenGL ES 支持三种基本图元：点，线和三角形，它们是可被 OpenGL ES 渲染的。</p>
 <p>在图元装配阶段，这些顶点着色器处理过的顶点被组装到一个个独立的几何图元中，对于每个图元都必须确定它是否位于视椎体内（三维空间显示在屏幕上的可见区域），如果图元部分在视椎体中，需要进行裁剪，如果图元全部在视椎体外，则直接丢弃图元。裁剪之后，顶点位置转换成了屏幕坐标。背面剔除操作也会执行，它根据图元是正面还是背面，如果是背面则丢弃该图元。</p>
 <ul>
 <li>裁剪（Clip）：保留完全在视锥体中的图元，丢弃完全不在视锥体中的图元，对一半在一半不在的图元进行裁剪。</li>
 <li>剔除（Cull）：这个过程可编码来决定是剔除正面、背面还是全部剔除。</li>
 </ul>
 <hr>
-<h3 id="Rasterization"><a href="#Rasterization" class="headerlink" title="Rasterization"></a>Rasterization</h3><p>Rasterization（<strong>光栅化</strong>），在光栅化阶段，基本图元被转换为二维的片元(Fragment)，Fragment 表示可以被渲染到屏幕上的像素，它包含位置，颜色，纹理坐标等信息，这些值是由图元的顶点信息进行插值计算得到的。这些片元接着被送到片元着色器中处理。这是从顶点数据到可渲染在显示设备上的像素的质变过程。</p>
+<h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p><img src="/2017/04/19/GLES20-01/Rasterization.png" alt="log"></p>
+<p><strong>光栅化</strong>（Rasterization），在光栅化阶段基本图元（点、线、三角形）被转换为二维的片元(Fragment)，Fragment 表示可以被渲染到屏幕上的像素，它包含位置，颜色，纹理坐标等信息，这些值是由图元的顶点信息进行插值计算得到的。这些片元接着被送到片元着色器中处理。这是<strong>从顶点数据到可渲染在显示设备上的像素的质变过程</strong>。</p>
 <p>用于从分配给每个图元顶点的顶点着色器输出生成每个片段值的机制称作插值（Interpolation）。这句不是人话的话解释了一个问题，就是从CPU提供的分散的顶点信息是如何变成屏幕上密集的像素的，图元装配后顶点可以理解成变为图形，光栅化时可以根据图形的形状，插值出那个图形区域的像素（纹理坐标v_texCoord、颜色等信息）。注意，此时的像素并不是屏幕上的像素，是不带有颜色的。接下来的片元着色器完成上色的工作。总之，光栅化阶段把图元转换成片元集合，之后会提交给片元着色器处理，这些片元集合表示可以被绘制到屏幕的像素。</p>
+<hr>
+<h3 id="片元着色器"><a href="#片元着色器" class="headerlink" title="片元着色器"></a>片元着色器</h3><p><strong>片元着色器</strong>（Fragment Shader），片元着色器通过可编程的方式实现对片元的操作，光栅化阶段生成每个片元都需要执行这个着色器程序，生成一个或多个（多重渲染）颜色值作为输出。下图展示为片元着色器的输入/输出情况：</p>
+<p><img src="/2017/04/19/GLES20-01/FragmentShader.png" alt="log"></p>
+<h4 id="片元着色器的输入"><a href="#片元着色器的输入" class="headerlink" title="片元着色器的输入"></a>片元着色器的输入</h4><ul>
+<li>Varying：顶点着色器输出的varying变量经过光栅化插值计算后产生的作用于每个片元的值。</li>
+<li>Uniforms：片元着色器使用的常量数据。</li>
+<li>Samplers：一种特殊的uniforms，表示片元着色器使用的纹理。</li>
+</ul>
+<h4 id="片元着色器的输出"><a href="#片元着色器的输出" class="headerlink" title="片元着色器的输出"></a>片元着色器的输出</h4><p>片元着色器可以丢弃片元或者为片元生成一个颜色值，保存到内置变量gl_FragColor。</p>
+<hr>
+<h3 id="逐片元操作"><a href="#逐片元操作" class="headerlink" title="逐片元操作"></a>逐片元操作</h3><p><strong>逐片元操作</strong>（Per-Fragment Operation），一个光栅化阶段产生的具有屏幕坐标(Xw, Yw)的片元，只能修改 <strong>Framebuffer</strong> (<strong>帧缓存</strong>)中位置在(Xw, Yw)的像素，在这一阶段对每一个片元进行一系列测试与处理，从而决定最终用于渲染的像素。这一系列处理过程如下：</p>
+<p><img src="/2017/04/19/GLES20-01/PerFragmentOperation.png" alt="log"></p>
+<ul>
+<li>像素所有权测试（Pixel Ownership Test）：决定 Framebuffer 中某一个(Xw, Yw)位置的像素是否属于当前Opengl ES的Context。比如：如果一个OpenGL ES帧缓冲窗口被其他窗口遮住了，窗口系统将决定被遮住的像素不属于当前OpenGL ES的Context，因此也就不会被显示。</li>
+<li>裁剪测试（Scissor Test）：裁剪测试决定位置为(Xw, Yw)的片元是否位于裁剪矩形内，如果不在，则被丢弃。</li>
+<li>模板测试（Stencil Test）：根据传入片元的模板，决定是否丢弃片元。</li>
+<li>深度测试（Depth Test）：根据传入片元的深度值，决定是否丢弃片元。</li>
+<li>混合（Blending）：将新产生的片元颜色值和Framebuffer中某个(Xw, Yw)位置存储的颜色值进行混合。</li>
+<li>抖动（Dithering）：抖动可以用来最大限度的减少使用有限精度存储颜色值到Framebuffer的工件。</li>
+</ul>
+<p>逐片元操作之后，片元要么被丢弃，要么一个片元的颜色、深度或者模板值被写入到Framebuffer的(Xw, Yw)位置，不过是否真的会写入还得依赖于Write Masks启用与否。Write Masks能更好的控制颜色、深度和模板值写入到合适的缓冲区。例如：颜色缓冲区中的Write Masks可以被设置成没有红色值写入到颜色缓冲区。</p>
+<hr>
+<h3 id="帧缓存"><a href="#帧缓存" class="headerlink" title="帧缓存"></a>帧缓存</h3><p><strong>帧缓存</strong>（Framebuffer），这是OpenGL ES 2.0渲染管线的最后一个阶段，Framebuffer 中存储这可以用于渲染到屏幕或纹理中的像素值，Opengl ES 2.0提供从Framebuffer中获取像素的接口，但不能读取其它值（如深度值，模版值等）。</p>
 ]]></content>
     
     <summary type="html">
@@ -75,6 +100,8 @@
       <category term="Android" scheme="https://eetze.github.io/tags/Android/"/>
     
       <category term="渲染管线" scheme="https://eetze.github.io/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
+    
+      <category term="可编程渲染管线" scheme="https://eetze.github.io/tags/%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
     
   </entry>
   

@@ -4,16 +4,20 @@
 
     
   <url>
-    <loc>https://eetze.github.io/2017/04/17/GLES20-00/</loc>
-    <lastmod>2017-04-20T14:37:41.411Z</lastmod>
+    <loc>https://eetze.github.io/2017/04/19/GLES20-01/</loc>
+    <lastmod>2017-04-21T06:54:27.878Z</lastmod>
     <data>
         <display>
-        <title>OpenGL ES 2.0基础教程（0）：OpenGL ES 简介</title>
-        <pubTime>2017-04-17T07:41:17.000Z</pubTime>
+        <title>OpenGL ES 2.0基础教程（1）：渲染管线</title>
+        <pubTime>2017-04-19T06:12:16.000Z</pubTime>
         
         <tag>OpenGL ES 2.0</tag>
          
         <tag>Android</tag>
+         
+        <tag>渲染管线</tag>
+         
+        <tag>可编程渲染管线</tag>
          
          
            
@@ -26,18 +30,16 @@
 
     
   <url>
-    <loc>https://eetze.github.io/2017/04/19/GLES20-01/</loc>
-    <lastmod>2017-04-20T14:29:35.517Z</lastmod>
+    <loc>https://eetze.github.io/2017/04/17/GLES20-00/</loc>
+    <lastmod>2017-04-20T14:37:41.411Z</lastmod>
     <data>
         <display>
-        <title>OpenGL ES 2.0基础教程（1）：渲染管线</title>
-        <pubTime>2017-04-19T06:12:16.000Z</pubTime>
+        <title>OpenGL ES 2.0基础教程（0）：OpenGL ES 简介</title>
+        <pubTime>2017-04-17T07:41:17.000Z</pubTime>
         
         <tag>OpenGL ES 2.0</tag>
          
         <tag>Android</tag>
-         
-        <tag>渲染管线</tag>
          
          
            
