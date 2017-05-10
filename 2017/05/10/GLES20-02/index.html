@@ -113,7 +113,7 @@
 <meta property="og:url" content="https://eetze.github.io/2017/05/10/GLES20-02/index.html">
 <meta property="og:site_name" content="Eetze的博客">
 <meta property="og:description" content="为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。">
-<meta property="og:updated_time" content="2017-05-10T12:43:55.175Z">
+<meta property="og:updated_time" content="2017-05-10T12:48:23.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL ES 2.0基础教程（2）：GLSurfaceView">
 <meta name="twitter:description" content="为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。">
@@ -478,7 +478,7 @@
 <ul>
 <li>将调试标志设置为新值。该值由一个或多个 DEBUG<em>CHECK</em>* 标志常量构造。每当创建surface时，调试标志都会生效。调试标志默认值为零。例如 setDebugFlags(DEBUG_CHECK_GL_ERROR | DEBUG_LOG_GL_CALLS)。</li>
 </ul>
-<p>调试标示：</p>
+<p>调试标志常量：</p>
 <ul>
 <li>DEBUG_CHECK_GL_ERROR GL日志通过 “GLSurfaceView” 标签输出 verbose 级别的系统日志。</li>
 <li>DEBUG_LOG_GL_CALLS 每次GL调用后都检查 glError()，如果glError()指示发生错误，则抛出异常。</li>
@@ -525,6 +525,7 @@
 <h4 id="onDrawFrame"><a href="#onDrawFrame" class="headerlink" title="onDrawFrame()"></a>onDrawFrame()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDrawFrame</span><span class="params">(GL10 gl)</span></span></div></pre></td></tr></table></figure>
 <ul>
 <li>当需要进行绘制时调用此方法，此方法中进行实际的绘制操作。</li>
+<li></li>
 </ul>
 
       
