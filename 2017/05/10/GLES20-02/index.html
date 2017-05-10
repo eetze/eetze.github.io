@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OpenGL ES 2.0,Android,渲染管线,可编程渲染管线," />
+  <meta name="keywords" content="OpenGL ES 2.0,Android,GLSurfaceView,Renderer," />
 
 
 
@@ -107,23 +107,16 @@
 
 
 
-<meta name="description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
+<meta name="description" content="为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenGL ES 2.0基础教程（1）：渲染管线">
-<meta property="og:url" content="https://eetze.github.io/2017/04/19/GLES20-01/index.html">
+<meta property="og:title" content="OpenGL ES 2.0基础教程（2）：GLSurfaceView">
+<meta property="og:url" content="https://eetze.github.io/2017/05/10/GLES20-02/index.html">
 <meta property="og:site_name" content="Eetze的博客">
-<meta property="og:description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/Pipeline.png">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/VertexShader.png">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/PrimitiveAssembly.png">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/Rasterization.png">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/FragmentShader.png">
-<meta property="og:image" content="https://eetze.github.io/2017/04/19/GLES20-01/PerFragmentOperation.png">
-<meta property="og:updated_time" content="2017-04-21T06:54:27.878Z">
+<meta property="og:description" content="为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。">
+<meta property="og:updated_time" content="2017-05-10T12:43:55.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenGL ES 2.0基础教程（1）：渲染管线">
-<meta name="twitter:description" content="大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。">
-<meta name="twitter:image" content="https://eetze.github.io/2017/04/19/GLES20-01/Pipeline.png">
+<meta name="twitter:title" content="OpenGL ES 2.0基础教程（2）：GLSurfaceView">
+<meta name="twitter:description" content="为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。">
 
 
 
@@ -151,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://eetze.github.io/2017/04/19/GLES20-01/"/>
+  <link rel="canonical" href="https://eetze.github.io/2017/05/10/GLES20-02/"/>
 
 
 
 
 
-  <title> OpenGL ES 2.0基础教程（1）：渲染管线 | Eetze的博客 </title>
+  <title> OpenGL ES 2.0基础教程（2）：GLSurfaceView | Eetze的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://eetze.github.io/2017/04/19/GLES20-01/">
+    <link itemprop="mainEntityOfPage" href="https://eetze.github.io/2017/05/10/GLES20-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eetze">
@@ -349,7 +342,7 @@
             
             
               
-                OpenGL ES 2.0基础教程（1）：渲染管线
+                OpenGL ES 2.0基础教程（2）：GLSurfaceView
               
             
           </h1>
@@ -364,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T14:12:16+08:00">
-                2017-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T15:06:59+08:00">
+                2017-05-10
               </time>
             
 
@@ -404,7 +397,7 @@
 
           
           
-             <span id="/2017/04/19/GLES20-01/" class="leancloud_visitors" data-flag-title="OpenGL ES 2.0基础教程（1）：渲染管线">
+             <span id="/2017/05/10/GLES20-02/" class="leancloud_visitors" data-flag-title="OpenGL ES 2.0基础教程（2）：GLSurfaceView">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,67 +426,106 @@
       
 
       
-        <div class="note primary"><p>大部分图形系统都可以比作工厂中的装配线(Assemble line)或者称为管线(Pipeline)。前一道的输出作为下道工序的输入。主CPU发出一个绘图指令，然后可能由硬件部件完成坐标变换，裁剪，添加颜色或是材质，最后在屏幕上显示出来。 </p>
+        <div class="note primary"><p>为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。</p>
 </div>
 <a id="more"></a>
-<h3 id="可编程渲染管线"><a href="#可编程渲染管线" class="headerlink" title="可编程渲染管线"></a>可编程渲染管线</h3><p>在 OpenGL ES 1.x 版本中支持固定管线，而 <strong>OpenGL ES 2.0 版本不再支持固定管线，只支持可编程管线</strong>，比起 OpenGL ES 1.x 中的固定管线要复杂和灵活很多。可编程管线就是说管线中某些操作可以动态编程实现而不必固定写死在代码中。那可编程管线有什么好处呢？主要是方便动态修改渲染过程，而无需重写编译代码，当然也和很多脚本语言一样，调试起来不太方便。</p>
-<p>下图为 OpenGL ES 2.0 渲染管线，阴影部分为可编程着色器。可动态编程实现这一功能通常都是通过脚本实现的，在 OpenGL ES 中也一样，编写着色器脚本的是由着色语言 (Shader Language) 提供的。</p>
-<p><img src="/2017/04/19/GLES20-01/Pipeline.png" alt="logo"></p>
-<hr>
-<h3 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h3><p><strong>顶点缓冲区对象</strong>（Vertex Buffer Object） 简称 <strong>VBO</strong>，它是GPU里面的一块缓冲区，当我们需要传递数据的时候，可以先向GPU申请一块内存，然后往里面填充数据。最后，再通过调用glVertexAttribPointer把数据传递给Vertex Shader。  </p>
-<p><strong>顶点数组对象</strong>（Vertex Arrays Object） 简称 <strong>VAO</strong>，它的作用主要是记录当前有哪些VBO，每个VBO里面绑定的是什么数据，还有每一个 vertex attribute 绑定的是哪一个VBO。</p>
-<p>VBO/VAO 是渲染管线的顶点数据来源，是CPU提供给GPU的，包括了顶点的位置、颜色、纹理坐标（用于纹理贴图）等顶点信息。 </p>
-<hr>
-<h3 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h3><p><strong>顶点着色器</strong> （Vertex Shader）是处理 VBO/VAO 提供的顶点信息的程序，VBO/VAO提供的每个顶点都执行一遍顶点着色器程序。 <strong>通过可编程的方式实现对顶点的操作，如进行基于矩阵变换位置，进行光照计算来生成每个顶点的颜色，生成或者变换纹理坐标</strong>，另外因为顶点着色器是由应用程序指定的，所以你可以用来进行任意自定义的顶点变换。下图展示为顶点着色器的输入/输出情况：</p>
-<p><img src="/2017/04/19/GLES20-01/VertexShader.png" alt="log"></p>
-<h4 id="顶点着色器的输入"><a href="#顶点着色器的输入" class="headerlink" title="顶点着色器的输入"></a>顶点着色器的输入</h4><ul>
-<li>Attributes：使用顶点数组封装每个顶点的数据，一般用于每个顶点都各不相同的变量，如顶点位置、颜色等。</li>
-<li>Uniforms：顶点着色器使用的常量数据，不能被着色器修改，一般用于对同一组顶点组成的单个3D物体中所有顶点都相同的变量，如当前光源的位置。</li>
-<li>Samplers：这个是可选的，一种特殊的 Uniforms ，表示顶点着色器使用的纹理。</li>
-</ul>
-<h4 id="顶点着色器的输出"><a href="#顶点着色器的输出" class="headerlink" title="顶点着色器的输出"></a>顶点着色器的输出</h4><ul>
-<li>Varying：顶点着色器的输出变量，作为片元着色器（Fragment Shader）的输入。在图元光栅化阶段，这些 Varying 值为每个生成的片元进行计算，并将结果作为片元着色器的输入数据。从分配给每个顶点的原始 Varying 值来为每个片元生成一个 Varying 值的机制叫做插值。</li>
-</ul>
-<h4 id="顶点着色器的特殊输出变量"><a href="#顶点着色器的特殊输出变量" class="headerlink" title="顶点着色器的特殊输出变量"></a>顶点着色器的特殊输出变量</h4><ul>
-<li>gl_Postion：以裁剪坐标的方式输出“顶点位置”，且是一个highp变量。</li>
-<li>gl_FrontFacing：以像素为单位输出“点的大小”，其值被限制在OpenGL ES 2.0可实现的范围内，且是一个mediump变量。</li>
-<li>gl_PointSize：不直接由Vertex Shader写，是一个boolean变量。</li>
-</ul>
-<hr>
-<h3 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h3><p><img src="/2017/04/19/GLES20-01/PrimitiveAssembly.png" alt="logo"></p>
-<p><strong>图元装配</strong>（Primitive Assembly)，经过着色器处理之后的<strong>顶点在图元装配阶段被装配为基本图元</strong>，图元是一个能用OpenGL ES绘图命令绘制的几何体，绘图命令指定了一组顶点属性，描述了图元的几何形状和图元类型，OpenGL ES 支持三种基本图元：点，线和三角形，它们是可被 OpenGL ES 渲染的。</p>
-<p>在图元装配阶段，这些顶点着色器处理过的顶点被组装到一个个独立的几何图元中，对于每个图元都必须确定它是否位于视椎体内（三维空间显示在屏幕上的可见区域），如果图元部分在视椎体中，需要进行裁剪，如果图元全部在视椎体外，则直接丢弃图元。裁剪之后，顶点位置转换成了屏幕坐标。背面剔除操作也会执行，它根据图元是正面还是背面，如果是背面则丢弃该图元。</p>
+<h3 id="GLSurfaceView"><a href="#GLSurfaceView" class="headerlink" title="GLSurfaceView"></a>GLSurfaceView</h3><p>GLSurfaceView 是一个视图，继承自 SurfaceView，它内嵌的 Surface 专门负责 OpenGL ES 渲染。</p>
+<h4 id="继承关系"><a href="#继承关系" class="headerlink" title="继承关系"></a>继承关系</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ android.view.View<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ android.view.SurfaceView<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ android.opengl.GLSurfaceView</p>
+<h4 id="GLSurfaceView特性"><a href="#GLSurfaceView特性" class="headerlink" title="GLSurfaceView特性"></a>GLSurfaceView特性</h4><p>GLSurfaceView 提供了下列特性</p>
 <ul>
-<li>裁剪（Clip）：保留完全在视锥体中的图元，丢弃完全不在视锥体中的图元，对一半在一半不在的图元进行裁剪。</li>
-<li>剔除（Cull）：这个过程可编码来决定是剔除正面、背面还是全部剔除。</li>
+<li>管理一个Surface，这个surface就是一块特殊的内存，能直接排版到Android的视图View上。</li>
+<li>管理一个EGL display，它能让OpenGL把内容渲染到上述的Surface上。</li>
+<li>接受用户提供的渲染对象，进行实际绘制。</li>
+<li>在独立线程中进行渲染，和UI线程分离。</li>
+<li>支持按需渲染(on-demand)和连续渲染(continuous)。</li>
+<li>一些可选工具，如调试。</li>
 </ul>
-<hr>
-<h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p><img src="/2017/04/19/GLES20-01/Rasterization.png" alt="log"></p>
-<p><strong>光栅化</strong>（Rasterization），在光栅化阶段基本图元（点、线、三角形）被转换为二维的片元(Fragment)，Fragment 表示可以被渲染到屏幕上的像素，它包含位置，颜色，纹理坐标等信息，这些值是由图元的顶点信息进行插值计算得到的。这些片元接着被送到片元着色器中处理。这是<strong>从顶点数据到可渲染在显示设备上的像素的质变过程</strong>。</p>
-<p>用于从分配给每个图元顶点的顶点着色器输出生成每个片段值的机制称作插值（Interpolation）。这句不是人话的话解释了一个问题，就是从CPU提供的分散的顶点信息是如何变成屏幕上密集的像素的，图元装配后顶点可以理解成变为图形，光栅化时可以根据图形的形状，插值出那个图形区域的像素（纹理坐标v_texCoord、颜色等信息）。注意，此时的像素并不是屏幕上的像素，是不带有颜色的。接下来的片元着色器完成上色的工作。总之，光栅化阶段把图元转换成片元集合，之后会提交给片元着色器处理，这些片元集合表示可以被绘制到屏幕的像素。</p>
-<hr>
-<h3 id="片元着色器"><a href="#片元着色器" class="headerlink" title="片元着色器"></a>片元着色器</h3><p><strong>片元着色器</strong>（Fragment Shader），片元着色器通过可编程的方式实现对片元的操作，光栅化阶段生成每个片元都需要执行这个着色器程序，生成一个或多个（多重渲染）颜色值作为输出。下图展示为片元着色器的输入/输出情况：</p>
-<p><img src="/2017/04/19/GLES20-01/FragmentShader.png" alt="log"></p>
-<h4 id="片元着色器的输入"><a href="#片元着色器的输入" class="headerlink" title="片元着色器的输入"></a>片元着色器的输入</h4><ul>
-<li>Varying：顶点着色器输出的varying变量经过光栅化插值计算后产生的作用于每个片元的值。</li>
-<li>Uniforms：片元着色器使用的常量数据。</li>
-<li>Samplers：一种特殊的uniforms，表示片元着色器使用的纹理。</li>
-</ul>
-<h4 id="片元着色器的输出"><a href="#片元着色器的输出" class="headerlink" title="片元着色器的输出"></a>片元着色器的输出</h4><p>片元着色器可以丢弃片元或者为片元生成一个颜色值，保存到内置变量gl_FragColor。</p>
-<hr>
-<h3 id="逐片元操作"><a href="#逐片元操作" class="headerlink" title="逐片元操作"></a>逐片元操作</h3><p><strong>逐片元操作</strong>（Per-Fragment Operation），一个光栅化阶段产生的具有屏幕坐标(Xw, Yw)的片元，只能修改 <strong>Framebuffer</strong> (<strong>帧缓存</strong>)中位置在(Xw, Yw)的像素，在这一阶段对每一个片元进行一系列测试与处理，从而决定最终用于渲染的像素。这一系列处理过程如下：</p>
-<p><img src="/2017/04/19/GLES20-01/PerFragmentOperation.png" alt="log"></p>
+<h4 id="创建GLSurfaceView"><a href="#创建GLSurfaceView" class="headerlink" title="创建GLSurfaceView"></a>创建GLSurfaceView</h4><p>GLSurfaceView 作为 OpenGL ES 绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。为了能在 Android 应用中使用 OpenGL ES 绘画，必须创建一个 View 作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。</p>
+<p>编写 OpenGL ES 应用的起点就是是从类 GLSurfaceView 开始的，通常会对 GLSurfaceView 进行派生来实现一些特定功能，例如响应触摸事件等。如果不需要功能扩展， GLSurfaceView 也可以直接用来使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyGLSurfaceView</span> <span class="keyword">extends</span> <span class="title">GLSurfaceView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyGLSurfaceView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="注册渲染器"><a href="#注册渲染器" class="headerlink" title="注册渲染器"></a>注册渲染器</h4><p>GLSurfaceView 的渲染被委托给 Renderer（渲染器）在独立的渲染线程里进行，可以通过 setRenderer(Renderer) 方法完成渲染器的注册。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setRenderer</span><span class="params">(GLSurfaceView.Renderer renderer)</span></span></div></pre></td></tr></table></figure>
 <ul>
-<li>像素所有权测试（Pixel Ownership Test）：决定 Framebuffer 中某一个(Xw, Yw)位置的像素是否属于当前Opengl ES的Context。比如：如果一个OpenGL ES帧缓冲窗口被其他窗口遮住了，窗口系统将决定被遮住的像素不属于当前OpenGL ES的Context，因此也就不会被显示。</li>
-<li>裁剪测试（Scissor Test）：裁剪测试决定位置为(Xw, Yw)的片元是否位于裁剪矩形内，如果不在，则被丢弃。</li>
-<li>模板测试（Stencil Test）：根据传入片元的模板，决定是否丢弃片元。</li>
-<li>深度测试（Depth Test）：根据传入片元的深度值，决定是否丢弃片元。</li>
-<li>混合（Blending）：将新产生的片元颜色值和Framebuffer中某个(Xw, Yw)位置存储的颜色值进行混合。</li>
-<li>抖动（Dithering）：抖动可以用来最大限度的减少使用有限精度存储颜色值到Framebuffer的工件。</li>
+<li>给 GLSurfaceView 注册唯一的渲染器，并启动渲染器渲染线程开始进行渲染，该方法应该在 GLSurfaceView 的生命周期中被调用一次，并且只能调用一次。</li>
 </ul>
-<p>逐片元操作之后，片元要么被丢弃，要么一个片元的颜色、深度或者模板值被写入到Framebuffer的(Xw, Yw)位置，不过是否真的会写入还得依赖于Write Masks启用与否。Write Masks能更好的控制颜色、深度和模板值写入到合适的缓冲区。例如：颜色缓冲区中的Write Masks可以被设置成没有红色值写入到颜色缓冲区。</p>
+<p>下面 GLSurfaceView 方法只能在 setRenderer() 之前调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setEGLConfigChooser(<span class="keyword">boolean</span>)</div><div class="line">setEGLConfigChooser(EGLConfigChooser)</div><div class="line">setEGLConfigChooser(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</div></pre></td></tr></table></figure>
+<p>下面 GLSurfaceView 方法只能在 setRenderer() 之后调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getRenderMode()</div><div class="line">onPause()</div><div class="line">onResume()</div><div class="line">queueEvent(Runnable)</div><div class="line">requestRender()</div><div class="line">setRenderMode(<span class="keyword">int</span>)</div></pre></td></tr></table></figure>
+<h4 id="EGL配置"><a href="#EGL配置" class="headerlink" title="EGL配置"></a>EGL配置</h4><p>EGL是 OpenGL ES 和底层的本地窗口系统之间的接口，Android设备支持多种EGL配置，可以使用不同数目的通道(channel)，也可以指定每个通道具有不同的位数(bits)。因此，GLSurfaceView在渲染器工作之前就应该指定EGL的配置。</p>
+<p>默认情况下， GLSurfaceView 使用默认配置选择器为像素格式为RGB_656，16位的深度缓存(depth buffer)，默认不开启遮罩缓存(stencil buffer)。如果希望使用不同的EGL配置，例如不需要深度缓冲区，则可以通过调用 setEGLConfigChooser() 方法来指定配置选择器来覆盖默认配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEGLConfigChooser</span><span class="params">(GLSurfaceView.EGLConfigChooser configChooser)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用自定义的配置选择器。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEGLConfigChooser</span><span class="params">(<span class="keyword">boolean</span> needDepth)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用默认配置选择器，选择是否使用深度缓存区。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEGLConfigChooser</span><span class="params">(<span class="keyword">int</span> redSize,</span></span></div><div class="line">                                <span class="keyword">int</span> greenSize,</div><div class="line">                                <span class="keyword">int</span> blueSize,</div><div class="line">                                <span class="keyword">int</span> alphaSize,</div><div class="line">                                <span class="keyword">int</span> depthSize,</div><div class="line">                                <span class="keyword">int</span> stencilSize)</div></pre></td></tr></table></figure>
+<ul>
+<li>使用配置选择器，该配置选择器将选择至少具有指定大小的配置，并尽可能接近指定的组件大小。</li>
+</ul>
+<p>如果调用setEGLConfigChooser()方法对，则必须在调用setRenderer(Renderer)之前调用该方法。</p>
+<h4 id="调试行为"><a href="#调试行为" class="headerlink" title="调试行为"></a>调试行为</h4><p>可以调用调试方法 setDebugFlags(int) 或 setGLWrapper(GLSurfaceView.GLWrapper) 来选择性的修改 GLSurfaceView 一些行为。这些方法可以在 setRenderer() 方法之前或之后调用，通常会在调用 setRenderer() 之前调用，以便它们能立即生效。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGLWrapper</span><span class="params">(GLSurfaceView.GLWrapper glWrapper)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>设置glWrapper。如果glWrapper不为null，则在每次创建 surface 时调用其GLSurfaceView.GLWrapper.wrap(GL)方法。GLWrapper可用来包装GL对象传递给渲染器。包装GL对象能够检查和修改渲染器创建的GL调用的行为。</li>
+<li>包装主要用于调试。</li>
+<li>glWrapper默认值为null。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDebugFlags</span><span class="params">(<span class="keyword">int</span> debugFlags)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>将调试标志设置为新值。该值由一个或多个 DEBUG<em>CHECK</em>* 标志常量构造。每当创建surface时，调试标志都会生效。调试标志默认值为零。例如 setDebugFlags(DEBUG_CHECK_GL_ERROR | DEBUG_LOG_GL_CALLS)。</li>
+</ul>
+<p>调试标示：</p>
+<ul>
+<li>DEBUG_CHECK_GL_ERROR GL日志通过 “GLSurfaceView” 标签输出 verbose 级别的系统日志。</li>
+<li>DEBUG_LOG_GL_CALLS 每次GL调用后都检查 glError()，如果glError()指示发生错误，则抛出异常。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDebugFlags</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>获取当前调试标志的值。</li>
+</ul>
+<h4 id="渲染模式"><a href="#渲染模式" class="headerlink" title="渲染模式"></a>渲染模式</h4><p>当渲染器设置之后，可以使用 setRenderMode(int) 指定<strong>渲染模式</strong>是按需渲染(on demand)还是连续渲染(continuous)。默认是连续渲染。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRenderMode</span><span class="params">(<span class="keyword">int</span> renderMode)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>RENDERMODE_CONTINUOUSLY 连续渲染，默认渲染模式，连续调用渲染器进行渲染。</li>
+<li>RENDERMODE_WHEN_DIRTY 按需渲染，渲染器仅在创建surface或调用requestRender()时进行渲染，此模式在视图不需要更新时允许GPU和CPU空闲，从而提高电池寿命和整体系统性能。</li>
+<li>本方法只能在setRenderer(Renderer)之后进行调用。</li>
+</ul>
+<h4 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h4><p>Activity窗口暂停(pause)或恢复(resume)时都必须通知 GLSurfaceView，GLSurfaceView客户端需要当Activity暂停时调用GLSurfaceView.onPause()方法，当Activity恢复时调用GLSurfaceView.onResume()方法，通过与Activity的生命周期绑定来实现控制暂停和恢复渲染线程。</p>
+<h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><p>要处理事件，通常都是继承GLSurfaceView类并重载它的事件方法。但是由于GLSurfaceView的渲染是在渲染器的独立渲染线程里，需要使用Java的跨线程通信机制跟渲染器通信，另外一个比较简单的方法就是调用queueEvent(Runnable)方法，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyGLSurfaceView</span> <span class="keyword">extends</span> <span class="title">GLSurfaceView</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">private</span> MyRenderer mMyRenderer;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">         mMyRenderer = ...;</div><div class="line">         setRenderer(mMyRenderer);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</div><div class="line">         <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) &#123;</div><div class="line">             queueEvent(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                 <span class="comment">// 此方法将在渲染线程中调用:</span></div><div class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                     mMyRenderer.handleDpadCenter();</div><div class="line">                 &#125;&#125;);</div><div class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">super</span>.onKeyDown(keyCode, event);</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queueEvent</span><span class="params">(Runnable r)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>运行在渲染线程的队列，可用于与渲染器的渲染线程进行通信。在设置渲染器之前不能使用。</li>
+</ul>
+<h4 id="设置OpenGL-ES使用版本"><a href="#设置OpenGL-ES使用版本" class="headerlink" title="设置OpenGL ES使用版本"></a>设置OpenGL ES使用版本</h4><p>当使用 OpenGLES 2.0 时，需要在 GLSurfaceView 的构造器中调用另外setEGLContextClientVersion()方法用来说明将要使用2.0版的API。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setEGLContextClientVersion(<span class="number">2</span>);</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="帧缓存"><a href="#帧缓存" class="headerlink" title="帧缓存"></a>帧缓存</h3><p><strong>帧缓存</strong>（Framebuffer），这是OpenGL ES 2.0渲染管线的最后一个阶段，Framebuffer 中存储这可以用于渲染到屏幕或纹理中的像素值，Opengl ES 2.0提供从Framebuffer中获取像素的接口，但不能读取其它值（如深度值，模版值等）。</p>
+<h3 id="GLSurfaceView-Renderer"><a href="#GLSurfaceView-Renderer" class="headerlink" title="GLSurfaceView.Renderer"></a>GLSurfaceView.Renderer</h3><p>GLSurfaceView.Renderer 是一个通用的渲染器接口类，GLSurfaceView 的内部类，由OpenGL调用来完成帧的渲染。通常会自己实现此接口的类，然后调用GLSurfaceView.setRenderer(Renderer)来使GLSurfaceView注册渲染器。</p>
+<p>实现自定义渲染器需要实现下面三个方法：</p>
+<ul>
+<li>onSurfaceCreated(GL10 gl, EGLConfig config)</li>
+<li>onSurfaceChanged(GL10 gl, int width, int height)</li>
+<li>onDrawFrame(GL10 gl)</li>
+</ul>
+<h4 id="onSurfaceChanged"><a href="#onSurfaceChanged" class="headerlink" title="onSurfaceChanged()"></a>onSurfaceChanged()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onSurfaceChanged</span><span class="params">(GL10 gl, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>当surface创建或重新创建时调用。</li>
+</ul>
+<p>该方法当渲染线程启动和 EGL context 丢失时调用。当Android设备在睡眠后唤醒时，context 通常会丢失。</p>
+<p>由于在渲染开始时以及每次 EGL context 丢失时都调用此方法，所以该方法是放置的创建相关资源的便利位置，当 EGL context 丢失时资源都需要重新创建，例如可以在此加载纹理资源。</p>
+<p>注意，当 EGL context 丢失时，与该context相关联的所有OpenGL资源将被自动删除，不需要手动调用相应的 “glDelete” 方法，如 glDeleteTextures() 来手动删除这些丢失的资源。</p>
+<h4 id="onSurfaceChanged-1"><a href="#onSurfaceChanged-1" class="headerlink" title="onSurfaceChanged()"></a>onSurfaceChanged()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onSurfaceChanged</span><span class="params">(GL10 gl, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>当surface改变尺寸时调用，例如横纵屏切换。</li>
+</ul>
+<h4 id="onDrawFrame"><a href="#onDrawFrame" class="headerlink" title="onDrawFrame()"></a>onDrawFrame()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDrawFrame</span><span class="params">(GL10 gl)</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>当需要进行绘制时调用此方法，此方法中进行实际的绘制操作。</li>
+</ul>
 
       
     </div>
@@ -514,7 +546,7 @@
 				
 				<li class="post-copyright-link">
 					<strong>本文链接：</strong>
-					<a href="/2017/04/19/GLES20-01/" title="OpenGL ES 2.0基础教程（1）：渲染管线">https://eetze.github.io/2017/04/19/GLES20-01/</a>
+					<a href="/2017/05/10/GLES20-02/" title="OpenGL ES 2.0基础教程（2）：GLSurfaceView">https://eetze.github.io/2017/05/10/GLES20-02/</a>
 				</li>
 				
 				<li class="post-copyright-license">
@@ -551,9 +583,9 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/渲染管线/" rel="tag"># 渲染管线</a>
+            <a href="/tags/GLSurfaceView/" rel="tag"># GLSurfaceView</a>
           
-            <a href="/tags/可编程渲染管线/" rel="tag"># 可编程渲染管线</a>
+            <a href="/tags/Renderer/" rel="tag"># Renderer</a>
           
         </div>
       
@@ -566,8 +598,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/17/GLES20-00/" rel="next" title="OpenGL ES 2.0基础教程（0）：OpenGL ES 简介">
-                <i class="fa fa-chevron-left"></i> OpenGL ES 2.0基础教程（0）：OpenGL ES 简介
+              <a href="/2017/04/19/GLES20-01/" rel="next" title="OpenGL ES 2.0基础教程（1）：渲染管线">
+                <i class="fa fa-chevron-left"></i> OpenGL ES 2.0基础教程（1）：渲染管线
               </a>
             
           </div>
@@ -575,10 +607,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/10/GLES20-02/" rel="prev" title="OpenGL ES 2.0基础教程（2）：GLSurfaceView">
-                OpenGL ES 2.0基础教程（2）：GLSurfaceView <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -771,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#可编程渲染管线"><span class="nav-number">1.</span> <span class="nav-text">可编程渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点数据"><span class="nav-number">2.</span> <span class="nav-text">顶点数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器"><span class="nav-number">3.</span> <span class="nav-text">顶点着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的输入"><span class="nav-number">3.1.</span> <span class="nav-text">顶点着色器的输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的输出"><span class="nav-number">3.2.</span> <span class="nav-text">顶点着色器的输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器的特殊输出变量"><span class="nav-number">3.3.</span> <span class="nav-text">顶点着色器的特殊输出变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图元装配"><span class="nav-number">4.</span> <span class="nav-text">图元装配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光栅化"><span class="nav-number">5.</span> <span class="nav-text">光栅化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#片元着色器"><span class="nav-number">6.</span> <span class="nav-text">片元着色器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#片元着色器的输入"><span class="nav-number">6.1.</span> <span class="nav-text">片元着色器的输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#片元着色器的输出"><span class="nav-number">6.2.</span> <span class="nav-text">片元着色器的输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逐片元操作"><span class="nav-number">7.</span> <span class="nav-text">逐片元操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帧缓存"><span class="nav-number">8.</span> <span class="nav-text">帧缓存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GLSurfaceView"><span class="nav-number">1.</span> <span class="nav-text">GLSurfaceView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继承关系"><span class="nav-number">1.1.</span> <span class="nav-text">继承关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GLSurfaceView特性"><span class="nav-number">1.2.</span> <span class="nav-text">GLSurfaceView特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建GLSurfaceView"><span class="nav-number">1.3.</span> <span class="nav-text">创建GLSurfaceView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注册渲染器"><span class="nav-number">1.4.</span> <span class="nav-text">注册渲染器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EGL配置"><span class="nav-number">1.5.</span> <span class="nav-text">EGL配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试行为"><span class="nav-number">1.6.</span> <span class="nav-text">调试行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染模式"><span class="nav-number">1.7.</span> <span class="nav-text">渲染模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity生命周期"><span class="nav-number">1.8.</span> <span class="nav-text">Activity生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理"><span class="nav-number">1.9.</span> <span class="nav-text">事件处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置OpenGL-ES使用版本"><span class="nav-number">1.10.</span> <span class="nav-text">设置OpenGL ES使用版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GLSurfaceView-Renderer"><span class="nav-number">2.</span> <span class="nav-text">GLSurfaceView.Renderer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onSurfaceChanged"><span class="nav-number">2.1.</span> <span class="nav-text">onSurfaceChanged()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onSurfaceChanged-1"><span class="nav-number">2.2.</span> <span class="nav-text">onSurfaceChanged()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onDrawFrame"><span class="nav-number">2.3.</span> <span class="nav-text">onDrawFrame()</span></a></li></ol></li></ol></div>
             
 
           </div>

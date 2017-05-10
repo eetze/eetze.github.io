@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>https://eetze.github.io/2017/05/10/GLES20-02/</loc>
+    <lastmod>2017-05-10T12:43:55.175Z</lastmod>
+    <data>
+        <display>
+        <title>OpenGL ES 2.0基础教程（2）：GLSurfaceView</title>
+        <pubTime>2017-05-10T07:06:59.000Z</pubTime>
+        
+        <tag>OpenGL ES 2.0</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>GLSurfaceView</tag>
+         
+        <tag>Renderer</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android OpenGL ES 2.0基础教程" url="https://eetze.github.io/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://eetze.github.io/2017/04/19/GLES20-01/</loc>
     <lastmod>2017-04-21T06:54:27.878Z</lastmod>
     <data>
