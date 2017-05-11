@@ -128,7 +128,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 'undefined',
+      userId: '0',
       author: '博主'
     },
     algolia: {
@@ -184,7 +184,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
@@ -280,7 +280,7 @@
   
     <div class="site-search">
       
-  <div class="popup local-search-popup">
+  <div class="popup search-popup local-search-popup">
   <div class="local-search-header clearfix">
     <span class="search-icon">
       <i class="fa fa-search"></i>
@@ -289,7 +289,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -444,9 +446,8 @@
       
     </div>
 
-	  
-
-	
+    
+    
     <div>
       
     </div>
@@ -455,6 +456,9 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -603,9 +607,8 @@
       
     </div>
 
-	  
-
-	
+    
+    
     <div>
       
     </div>
@@ -614,6 +617,9 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -763,9 +769,8 @@
       
     </div>
 
-	  
-
-	
+    
+    
     <div>
       
     </div>
@@ -774,6 +779,9 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -901,9 +909,8 @@
       
     </div>
 
-	  
-
-	
+    
+    
     <div>
       
     </div>
@@ -912,6 +919,9 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -933,7 +943,7 @@
 
   
 
-          
+
           </div>
           
 
@@ -970,7 +980,7 @@
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
@@ -981,8 +991,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -990,8 +1002,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1006,7 +1020,7 @@
               <i class="fa fa-rss"></i>
               RSS
             </a>
-			<a rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+            <a rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
     function go() {
 
       var songs = [
@@ -1134,7 +1148,7 @@
         
       </div>
     
-    
+
   </div>
 
   
@@ -1154,6 +1168,8 @@
 
 
   
+
+
 
 
 
@@ -1208,7 +1224,6 @@
   
 
 
-
   
 
 
@@ -1236,8 +1251,11 @@
 
 
 
+
+
+
   
-  
+
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
@@ -1250,7 +1268,9 @@
     // monitor main search box;
 
     function proceedsearch() {
-      $("body").append('<div class="local-search-pop-overlay">').css('overflow', 'hidden');
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
       $('.popup').toggle();
     }
     // search function;
@@ -1363,7 +1383,8 @@
   </script>
 
 
-  
+
+
 
   
 
@@ -1493,11 +1514,10 @@
 
   
 
-
   
 
-	<!-- 小红心 -->
-	<script type="text/javascript" src="/js/src/love.js"></script>
-		
+  
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>
