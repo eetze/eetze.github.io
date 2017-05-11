@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://eetze.github.io/"/>
-  <updated>2017-05-10T12:48:23.113Z</updated>
+  <updated>2017-05-11T02:26:27.895Z</updated>
   <id>https://eetze.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://eetze.github.io/2017/05/10/GLES20-02/"/>
     <id>https://eetze.github.io/2017/05/10/GLES20-02/</id>
     <published>2017-05-10T07:06:59.000Z</published>
-    <updated>2017-05-10T12:48:23.113Z</updated>
+    <updated>2017-05-11T02:26:27.895Z</updated>
     
     <content type="html"><![CDATA[<div class="note primary"><p>为了能在Android应用中使用 OpenGL ES 绘画，必须创建一个View作为容器。而最直接的方式就是从 GLSurfaceView 和 GLSurfaceView.Renderer 分别派生一个类。 GLSurfaceView 作为OpenGL绘制所在的容器，而实际的绘图动作都是在 GLSurfaceView.Renderer 里面发生的。</p>
 </div>
@@ -121,7 +121,6 @@
 <h4 id="onDrawFrame"><a href="#onDrawFrame" class="headerlink" title="onDrawFrame()"></a>onDrawFrame()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDrawFrame</span><span class="params">(GL10 gl)</span></span></div></pre></td></tr></table></figure>
 <ul>
 <li>当需要进行绘制时调用此方法，此方法中进行实际的绘制操作。</li>
-<li></li>
 </ul>
 ]]></content>
     
