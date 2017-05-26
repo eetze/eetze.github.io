@@ -1,0 +1,2 @@
+[0526/172902:ERROR:file_io.cc(30)] read: expected 52976, observed 0
+[0526/172902:ERROR:crash_report_database_win.cc(442)] failed to read records
