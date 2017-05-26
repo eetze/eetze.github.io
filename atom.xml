@@ -4,9 +4,9 @@
   <subtitle>自知者不怨人  知命者不怨天</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://eetze.github.io/"/>
+  <link href="https://eetze.me/"/>
   <updated>2017-05-11T02:26:27.895Z</updated>
-  <id>https://eetze.github.io/</id>
+  <id>https://eetze.me/</id>
   
   <author>
     <name>Eetze</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>OpenGL ES 2.0基础教程（2）：GLSurfaceView</title>
-    <link href="https://eetze.github.io/2017/05/10/GLES20-02/"/>
-    <id>https://eetze.github.io/2017/05/10/GLES20-02/</id>
+    <link href="https://eetze.me/2017/05/10/GLES20-02/"/>
+    <id>https://eetze.me/2017/05/10/GLES20-02/</id>
     <published>2017-05-10T07:06:59.000Z</published>
     <updated>2017-05-11T02:26:27.895Z</updated>
     
@@ -131,23 +131,23 @@
     
     </summary>
     
-      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.github.io/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
+      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.me/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="OpenGL ES 2.0" scheme="https://eetze.github.io/tags/OpenGL-ES-2-0/"/>
+      <category term="OpenGL ES 2.0" scheme="https://eetze.me/tags/OpenGL-ES-2-0/"/>
     
-      <category term="Android" scheme="https://eetze.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://eetze.me/tags/Android/"/>
     
-      <category term="GLSurfaceView" scheme="https://eetze.github.io/tags/GLSurfaceView/"/>
+      <category term="GLSurfaceView" scheme="https://eetze.me/tags/GLSurfaceView/"/>
     
-      <category term="Renderer" scheme="https://eetze.github.io/tags/Renderer/"/>
+      <category term="Renderer" scheme="https://eetze.me/tags/Renderer/"/>
     
   </entry>
   
   <entry>
     <title>OpenGL ES 2.0基础教程（1）：渲染管线</title>
-    <link href="https://eetze.github.io/2017/04/19/GLES20-01/"/>
-    <id>https://eetze.github.io/2017/04/19/GLES20-01/</id>
+    <link href="https://eetze.me/2017/04/19/GLES20-01/"/>
+    <id>https://eetze.me/2017/04/19/GLES20-01/</id>
     <published>2017-04-19T06:12:16.000Z</published>
     <updated>2017-04-21T06:54:27.878Z</updated>
     
@@ -221,23 +221,23 @@
     
     </summary>
     
-      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.github.io/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
+      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.me/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="OpenGL ES 2.0" scheme="https://eetze.github.io/tags/OpenGL-ES-2-0/"/>
+      <category term="OpenGL ES 2.0" scheme="https://eetze.me/tags/OpenGL-ES-2-0/"/>
     
-      <category term="Android" scheme="https://eetze.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://eetze.me/tags/Android/"/>
     
-      <category term="渲染管线" scheme="https://eetze.github.io/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
+      <category term="渲染管线" scheme="https://eetze.me/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
     
-      <category term="可编程渲染管线" scheme="https://eetze.github.io/tags/%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
+      <category term="可编程渲染管线" scheme="https://eetze.me/tags/%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/"/>
     
   </entry>
   
   <entry>
     <title>OpenGL ES 2.0基础教程（0）：OpenGL ES 简介</title>
-    <link href="https://eetze.github.io/2017/04/17/GLES20-00/"/>
-    <id>https://eetze.github.io/2017/04/17/GLES20-00/</id>
+    <link href="https://eetze.me/2017/04/17/GLES20-00/"/>
+    <id>https://eetze.me/2017/04/17/GLES20-00/</id>
     <published>2017-04-17T07:41:17.000Z</published>
     <updated>2017-04-20T14:37:41.411Z</updated>
     
@@ -276,19 +276,19 @@
     
     </summary>
     
-      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.github.io/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
+      <category term="Android OpenGL ES 2.0基础教程" scheme="https://eetze.me/categories/Android-OpenGL-ES-2-0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="OpenGL ES 2.0" scheme="https://eetze.github.io/tags/OpenGL-ES-2-0/"/>
+      <category term="OpenGL ES 2.0" scheme="https://eetze.me/tags/OpenGL-ES-2-0/"/>
     
-      <category term="Android" scheme="https://eetze.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://eetze.me/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Windows下使用Bash</title>
-    <link href="https://eetze.github.io/2017/04/12/BashOnWindows/"/>
-    <id>https://eetze.github.io/2017/04/12/BashOnWindows/</id>
+    <link href="https://eetze.me/2017/04/12/BashOnWindows/"/>
+    <id>https://eetze.me/2017/04/12/BashOnWindows/</id>
     <published>2017-04-12T05:39:49.000Z</published>
     <updated>2017-04-17T08:09:30.222Z</updated>
     
@@ -359,13 +359,13 @@
     </summary>
     
     
-      <category term="BashOnWindows" scheme="https://eetze.github.io/tags/BashOnWindows/"/>
+      <category term="BashOnWindows" scheme="https://eetze.me/tags/BashOnWindows/"/>
     
-      <category term="Bash" scheme="https://eetze.github.io/tags/Bash/"/>
+      <category term="Bash" scheme="https://eetze.me/tags/Bash/"/>
     
-      <category term="Cmder" scheme="https://eetze.github.io/tags/Cmder/"/>
+      <category term="Cmder" scheme="https://eetze.me/tags/Cmder/"/>
     
-      <category term="Zsh" scheme="https://eetze.github.io/tags/Zsh/"/>
+      <category term="Zsh" scheme="https://eetze.me/tags/Zsh/"/>
     
   </entry>
   
